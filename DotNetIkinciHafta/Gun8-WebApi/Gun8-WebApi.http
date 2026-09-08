@@ -1,0 +1,6 @@
+@Gun8_WebApi_HostAddress = http://localhost:5189
+
+GET {{Gun8_WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
