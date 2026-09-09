@@ -1,3 +1,9 @@
+/*
+Controller → İlgili HTTP işlemlerini toplar.
+Routing    → İsteği doğru action metoduna yönlendirir.
+Action     → HTTP isteğini karşılayan public metottur.
+IActionResult → Ok, NotFound gibi farklı cevapları döndürür.
+*/
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
