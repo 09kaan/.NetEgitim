@@ -1,0 +1,6 @@
+@Gun11_EfCoreSqlite_HostAddress = http://localhost:5048
+
+GET {{Gun11_EfCoreSqlite_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

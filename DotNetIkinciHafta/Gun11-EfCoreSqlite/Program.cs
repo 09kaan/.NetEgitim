@@ -17,12 +17,30 @@ Bu nesnenin controller tarafından new ile oluşturulmayıp dışarıdan verilme
 
 Constructor Injection:
 Nesnenin controller'ın constructor parametresi üzerinden verilmesidir.
+
+Singleton → Uygulama boyunca aynı nesne
+Scoped    → Her HTTP isteğinde yeni nesne
+
+Migration tabloya çeviriyor gibi benim anladığım 
+Products
+├── Id
+├── Name
+└── Price
 */
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
-builder.Services.AddSingleton<IProductService, ProductService>();
+builder.Services.AddScoped<IProductService, ProductService>();    //Singletonı değiştik
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
+    string? connectionString =
+        builder.Configuration.GetConnectionString(
+            "DefaultConnection"
+        );
 
+    options.UseSqlite(connectionString);
+});
 var app = builder.Build();
 
 app.MapGet("/", () => "API çalışıyor");
