@@ -5,3 +5,4 @@ Entity Framework Core paketlerini kurup AppDbContext ve DbSet<Product> ile C# mo
 Migration oluşturarak Products tablosunu ve products.db veritabanı dosyasını ürettik. 
 ProductServicei _context.Products ve SaveChanges() kullanacak şekilde değiştirip
  uygulama yeniden başlatıldığında ürünlerin kaybolmadığını doğruladık.
+ */

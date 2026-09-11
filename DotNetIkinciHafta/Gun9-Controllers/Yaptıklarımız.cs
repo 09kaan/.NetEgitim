@@ -4,3 +4,4 @@ Minimal endpoint’lerden controller yapısına geçerek ilgili HTTP işlemlerin
 Route parametresiyle /api/products/1 gibi adreslerden ID alıp ürün aradık. 
 Bulunan ürün için Ok, bulunamayan ürün için NotFound döndürdük ve aynı route’un-
 iki kez tanımlanmasının AmbiguousMatchException oluşturduğunu gördük.
+*/

@@ -1,7 +1,8 @@
-//Taski doğrudan return ediyorsak async await kullanmamıza gerek yok
+/*Taski doğrudan return ediyorsak async await kullanmamıza gerek yok
 //ama çıkan sonucu kullanıyorsak aynı Task içinde async await lazım
 //Deletede ve getlerde veri göndermediğimiz için dtoya gerek yokmuş
 //Post, Put ,Patchte veri gönderdiğimiz için dto lazım
+*/
 using Microsoft.EntityFrameworkCore;
 
 public class ProductService : IProductService
