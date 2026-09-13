@@ -1,0 +1,6 @@
+@Gun14_RelationsJoinApi_HostAddress = http://localhost:5289
+
+GET {{Gun14_RelationsJoinApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
