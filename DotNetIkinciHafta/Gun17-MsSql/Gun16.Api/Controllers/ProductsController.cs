@@ -1,0 +1,65 @@
+using Gun16.Application.DTOs;
+using Gun16.Application.Interfaces;
+using Gun16.Domain.Entities;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Gun16.Api.Controllers;
+
+[ApiController]
+[Route("api/[controller]")]
+public class ProductsController : ControllerBase
+{
+    private readonly IProductService _service;
+
+    public ProductsController(IProductService service)
+    {
+        _service = service;
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Create(CreateProductDto dto)
+    {
+        
+        // DTO'yu ProductService'e gönder.
+        Product? product = await _service.CreateAsync(dto);
+
+        // Service null döndürdüyse kategori bulunamadı.
+        if (product is null)
+        {
+            return Problem(
+                statusCode: StatusCodes.Status404NotFound,
+                title: "Kategori bulunamadı.",
+                detail: "Gönderilen CategoryId veritabanında mevcut değil."
+            );
+        }
+
+        return StatusCode(
+            StatusCodes.Status201Created,
+            product
+        );
+    }
+    [HttpGet("with-category")]
+    public async Task<IActionResult> GetAllWithCategory()
+    {
+        List<ProductWithCategoryDto> products = await _service.GetAllWithCategoryAsync();
+
+        return Ok(products);
+    }
+    [HttpGet("{id:int}/with-category")]
+    public async Task<IActionResult> GetByIdWithCategory(int id)
+    {
+        ProductWithCategoryDto? product =
+            await _service.GetByIdWithCategoryAsync(id);
+
+        if (product is null)
+        {
+            return NotFound(new
+            {
+                Message = "Ürün bulunamadı."
+            });
+        }
+
+        return Ok(product);
+    }
+        
+}

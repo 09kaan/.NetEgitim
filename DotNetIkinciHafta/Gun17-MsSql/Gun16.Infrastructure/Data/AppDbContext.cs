@@ -12,5 +12,13 @@ public class AppDbContext : DbContext
     public DbSet<Product> Products { get; set; } = null!;
 
     public DbSet<Category> Categories{ get; set; } = null!;  //Category tipi Categories Dbdeki tablonun ismi
-    
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<Product>()
+            .Property(product => product.Price)
+            .HasPrecision(18, 2);
+    }
 }
