@@ -9,7 +9,13 @@ Güncelleme: Property değiştir + `SaveChangesAsync()`
 
 Silme: `Remove()` + `SaveChangesAsync()`
 */
+using Gun16.Application.DTOs;
+using Gun16.Application.Interfaces;
+using Gun16.Domain.Entities;
+using Gun16.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+
+namespace Gun16.Infrastructure.Services;
 
 public class CategoryService : ICategoryService
 {

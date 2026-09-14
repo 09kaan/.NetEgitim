@@ -1,4 +1,7 @@
+using Gun16.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+
+namespace Gun16.Infrastructure.Data;
 
 public class AppDbContext : DbContext
 {
