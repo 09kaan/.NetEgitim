@@ -45,5 +45,21 @@ public class ProductsController : ControllerBase
 
         return Ok(products);
     }
-    
+    [HttpGet("{id:int}/with-category")]
+    public async Task<IActionResult> GetByIdWithCategory(int id)
+    {
+        ProductWithCategoryDto? product =
+            await _service.GetByIdWithCategoryAsync(id);
+
+        if (product is null)
+        {
+            return NotFound(new
+            {
+                Message = "Ürün bulunamadı."
+            });
+        }
+
+        return Ok(product);
+    }
+        
 }

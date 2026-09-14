@@ -60,4 +60,21 @@ public class ProductService : IProductService
 
         return products;
     }
+    public async Task<ProductWithCategoryDto?> GetByIdWithCategoryAsync(int id)
+    {
+        ProductWithCategoryDto? product =
+            await _context.Products
+                .Where(item => item.Id == id)
+                .Select(item => new ProductWithCategoryDto
+                {
+                    Id = item.Id,
+                    Name = item.Name,
+                    Price = item.Price,
+                    CategoryId = item.CategoryId,
+                    CategoryName = item.Category.Name
+                })
+                .FirstOrDefaultAsync();
+
+        return product;
+    }
 }
