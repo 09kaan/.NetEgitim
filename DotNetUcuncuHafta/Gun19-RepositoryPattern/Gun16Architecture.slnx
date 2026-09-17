@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Gun16.Api/Gun16.Api.csproj" />
+  <Project Path="Gun16.Application/Gun16.Application.csproj" />
+  <Project Path="Gun16.Domain/Gun16.Domain.csproj" />
+  <Project Path="Gun16.Infrastructure/Gun16.Infrastructure.csproj" />
+</Solution>
