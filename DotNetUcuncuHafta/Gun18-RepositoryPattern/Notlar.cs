@@ -51,4 +51,9 @@ DbContext  → Veritabanıyla konuşur
 
 MSSQL 
 String için başta N yazıyoruz. Unicode olduğunu belirtiyormuş.
+
+Gün 18 
+Repository Pattern, veri erişim işlemlerini service katmanından ayırır. 
+Service hangi veriye ihtiyacı olduğunu repository interface’i üzerinden söyler; 
+repository ise EF Core ve AppDbContext kullanarak bu verinin veritabanından nasıl okunacağını veya yazılacağını gerçekleştirir.
 */
